@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b184723fc7c8c9429925ee4cdc78950, type: 3}
+  m_Name: CharactersSetting
+  m_EditorClassIdentifier: 
+  _prefabBall: {fileID: 4243976778419614359, guid: 260178a16a43bb740a5fa659eb3ccf9c, type: 3}
+  _ballColors:
+  - Color: {r: 0.9339623, g: 0.21521986, b: 0.039649326, a: 1}
+  - Color: {r: 0, g: 0.8679245, b: 0.12077037, a: 1}
+  - Color: {r: 0.9150943, g: 0.8079423, b: 0.038848326, a: 1}
+  - Color: {r: 1, g: 0, b: 0.047468662, a: 1}
+  - Color: {r: 0, g: 0.38025475, b: 1, a: 1}
+  - Color: {r: 0, g: 0.9898968, b: 1, a: 1}
+  - Color: {r: 1, g: 0, b: 0.782177, a: 1}
+  - Color: {r: 0.63621235, g: 0, b: 1, a: 1}
+  - Color: {r: 1, g: 1, b: 1, a: 1}
