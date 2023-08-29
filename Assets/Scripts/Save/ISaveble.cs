@@ -7,9 +7,8 @@ namespace TestOverMobile.Interface
     {
         List<PlayerCard> GetPlayerCards();
         string GetPlayerName();
-        void SetResultCurrentPlayer(int score);
         void CreateNewPlayer(string name);
+        void SetResultCurrentPlayer(int score);
         void Save();
-        void Load();
     }
 }

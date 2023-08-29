@@ -43,7 +43,6 @@ namespace TestOverMobile.UI
         private void SetDataUI()
         {
             _playerName.text = _iSaveble.GetPlayerName();
-            // lives
         }
 
         private void OnDestroy()

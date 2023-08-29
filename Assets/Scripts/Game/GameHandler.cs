@@ -31,7 +31,7 @@ namespace TestOverMobile.Core
         public bool StartGame()
         {
             CreateServices();
-            
+
             _iSpawner.StartSpawn(ref _gameSetting.MaxCountBalls);
             return true;
         }
@@ -77,7 +77,7 @@ namespace TestOverMobile.Core
         {
             if (_effectData.IsUseEffect)
                 _effectServices.PlayEffect(positionEffect);
-            
+
             _isGameOver = _sequenceServices.SetScore(count, out int currentScore, out int currentLives);
             _iDisplaying.SetScore(ref currentScore, ref currentLives);
 

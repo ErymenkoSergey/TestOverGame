@@ -12,7 +12,6 @@ namespace TestOverMobile.Core
 
         private ControlServices _controlServices;
 
-        //[SerializeField] private GameObject _saveServices;
         private ISaveble _iSaveble;
 
         [Header("Debug Flags")]
@@ -29,17 +28,12 @@ namespace TestOverMobile.Core
         {
             if (_menuUI.TryGetComponent(out iDisplayed component))
                 _iDisplayed = component;
-            
+
             _controlServices = new ControlServices();
             _isStartSaveService = ConnectToData();
             _isStartUIService = _iDisplayed.SetControllable(_controlServices, _iSaveble);
-            
+
             return true;
-        }
-
-        private void SetNamePlayer()
-        {
-
         }
 
         private bool ConnectToData()

@@ -47,7 +47,7 @@ namespace TestOverMobile.UI
         {
             _newGameButton.onClick.AddListener(() => _iControllable.NewGame());
             _bestResultButton.onClick.AddListener(() => ShowBestResultPanel(true));
-            _quitButton.onClick.AddListener(() => _iControllable.QuitGame());
+            _quitButton.onClick.AddListener(() => QuitGame());
             _closeBestResultButton.onClick.AddListener(() => ShowBestResultPanel(false));
             _okNameButton.onClick.AddListener(() => ShowPanelEnterName(false));
             _closeNameButton.onClick.AddListener(() => ShowPanelEnterName(false));
@@ -85,8 +85,6 @@ namespace TestOverMobile.UI
 
         private void SetPlayerName(string name)
         {
-            
-
             if (name == null)
             {
                 ShowPanelEnterName(true);
@@ -110,6 +108,12 @@ namespace TestOverMobile.UI
         private List<PlayerCard> GetPlayerCards()
         {
             return _iSaveble.GetPlayerCards();
+        }
+
+        private void QuitGame()
+        {
+            _iSaveble.Save();
+            _iControllable.QuitGame();
         }
     }
 }

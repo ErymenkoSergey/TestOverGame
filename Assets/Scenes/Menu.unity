@@ -1564,9 +1564,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdcf4c9b70be0b244bef8748f3289f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerCards: []
   PlayerName: 
   Score: 0
+  _players: []
+  _savePath: 
+  _localFloder: /Data/Save/
+  _saveFileName: data.json
 --- !u!1 &1231223266
 GameObject:
   m_ObjectHideFlags: 0
