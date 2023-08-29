@@ -14,28 +14,36 @@ namespace TestOverMobile.UI
         [Space(15)]
         [SerializeField] private Button _pauseButton;
         [SerializeField] private Button _continueButton;
-        [SerializeField] private Button _restartButton;
-        [SerializeField] private Button _quitButton;
+        [SerializeField] private Button _menuButton;
+        [SerializeField] private Button _menuGameOverButton;
 
         [Space(15)]
-        [SerializeField] private GameObject _buttonsPanel;
         [SerializeField] private GameObject _pausePanel;
         [SerializeField] private GameObject _gameOverPanel;
 
         private IControllable _iControllable;
+        private ISaveble _iSaveble;
 
-        public void SetControllable(IControllable controllable)
+        public void SetControllable(IControllable controllable, ISaveble saveble)
         {
             _iControllable = controllable;
+            _iSaveble = saveble;
             Initialized();
+            SetDataUI();
         }
 
         public void Initialized()
         {
             _pauseButton.onClick.AddListener(() => SetPausePanelStatus(true));
-            //_continueButton.onClick.AddListener(() => SetPausePanelStatus(false));
-            //_restartButton.onClick.AddListener(() => _iControllable.RestartGame());
-            _quitButton.onClick.AddListener(() => _iControllable.QuitGame());
+            _continueButton.onClick.AddListener(() => SetPausePanelStatus(false));
+            _menuButton.onClick.AddListener(() => _iControllable.ToMenu());
+            _menuGameOverButton.onClick.AddListener(() => _iControllable.ToMenu());
+        }
+
+        private void SetDataUI()
+        {
+            _playerName.text = _iSaveble.GetPlayerName();
+            // lives
         }
 
         private void OnDestroy()
@@ -46,13 +54,15 @@ namespace TestOverMobile.UI
         public void DeInitialized()
         {
             _pauseButton.onClick.RemoveAllListeners();
-            //_restartButton.onClick.RemoveAllListeners();
-            _quitButton.onClick.RemoveAllListeners();
+            _continueButton.onClick.RemoveAllListeners();
+            _menuButton.onClick.RemoveAllListeners();
+            _menuGameOverButton.onClick.RemoveAllListeners();
         }
 
         public void SetScore(ref int score, ref int lives)
         {
             _currentScore.text = score.ToString();
+            _iSaveble.SetResultCurrentPlayer(score);
             UpdateLivesUI(lives);
         }
 
@@ -68,18 +78,14 @@ namespace TestOverMobile.UI
 
         private void SetPausePanelStatus(in bool isOpen)
         {
-            ShowButtonPanel(isOpen);
             _pausePanel.SetActive(isOpen);
             _iControllable.SetPause(isOpen);
         }
 
-        private void ShowButtonPanel(in bool isOpen) { }// => _buttonsPanel.SetActive(isOpen);
-
         public void GameOver()
         {
-            ShowButtonPanel(true);
-            //_continueButton.enabled = false;
-            //_gameOverPanel.SetActive(true);
+            _continueButton.enabled = false;
+            _gameOverPanel.SetActive(true);
         }
     }
 }

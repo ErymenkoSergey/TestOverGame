@@ -2,7 +2,7 @@ using TestOverMobile.Interface;
 using UnityEngine;
 using TestOverMobile.Data;
 using TestOverMobile.Services;
-using TestOverMobile.Savesystem;
+using TestOverMobile.SaveSystem;
 
 namespace TestOverMobile.Core
 {
@@ -19,11 +19,12 @@ namespace TestOverMobile.Core
         [SerializeField] private GameObject _spawner;
         private ISpawner _iSpawner;
 
+        private ISaveble _iSaveble;
+
         private GameSequence _sequenceServices;
         private EffectServices _effectServices;
         private ControlServices _controlServices;
         private OptimizeServices _optimizeServices;
-        private SaveServices _saveServices;
 
         [SerializeField] private bool _isGameOver = false;
 
@@ -48,13 +49,19 @@ namespace TestOverMobile.Core
             _effectServices = new EffectServices(ref _effectData.EffectsConfiguration, _iSpawner.GetParentPosition());
             _controlServices = new ControlServices();
             _optimizeServices = new OptimizeServices();
-            _saveServices = new SaveServices();
+
+            ConnectToData();
 
             if (_uI.TryGetComponent(out IDisplaying displaying))
             {
                 _iDisplaying = displaying;
-                _iDisplaying.SetControllable(_controlServices);
+                _iDisplaying.SetControllable(_controlServices, _iSaveble);
             }
+        }
+
+        private void ConnectToData()
+        {
+            _iSaveble = SaveServices.Instance;
         }
 
         private void OnDestroy() => DeInitialized();
