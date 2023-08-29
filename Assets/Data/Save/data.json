@@ -1,48 +1,8 @@
 {
     "Players": [
         {
-            "Name": "asd2",
-            "Score": 8
-        },
-        {
-            "Name": "asd2",
-            "Score": 8
-        },
-        {
-            "Name": "",
-            "Score": 0
-        },
-        {
-            "Name": "asd232",
+            "Name": "nameMy",
             "Score": 5
-        },
-        {
-            "Name": "asd232",
-            "Score": 5
-        },
-        {
-            "Name": "dsf4efs",
-            "Score": 8
-        },
-        {
-            "Name": "dsf4efs",
-            "Score": 8
-        },
-        {
-            "Name": "dsf4efs",
-            "Score": 8
-        },
-        {
-            "Name": "dsf4efs",
-            "Score": 8
-        },
-        {
-            "Name": "dsf4efs",
-            "Score": 8
-        },
-        {
-            "Name": "dsf4efs",
-            "Score": 8
         }
     ]
 }

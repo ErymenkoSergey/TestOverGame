@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using TestOverMobile.Audio;
 
 namespace TestOverMobile.Core
 {
@@ -89,6 +90,8 @@ namespace TestOverMobile.Core
 
         public void ReUsedBall(ReusedData data)
         {
+            AudioEffects.Instance?.ClickButton();
+
             if (data.IsClick)
                 OnSetScore.Invoke(data.Reward, data.Position);
             else

@@ -57,6 +57,8 @@ namespace TestOverMobile.Core
                 _iDisplaying = displaying;
                 _iDisplaying.SetControllable(_controlServices, _iSaveble);
             }
+
+            _controlServices.SetPause(false);
         }
 
         private void ConnectToData()
