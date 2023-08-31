@@ -34,11 +34,7 @@ namespace TestOverMobile.SaveSystem
                 DontDestroyOnLoad(this.gameObject);
             }
 
-#if UNITY_ANDROID && !UNITY_EDITOR
-            _savePath = Path.Combine(Application.persistentDataPath + _localFloder, _saveFileName);
-#else
             _savePath = Path.Combine(Application.dataPath + _localFloder, _saveFileName);
-#endif
             LoadFromFile();
         }
 
@@ -89,9 +85,6 @@ namespace TestOverMobile.SaveSystem
 
         public void AddPlayer()
         {
-            if (_players.Contains(_currentPlayer))
-                return;
-
             _players.Add(_currentPlayer);
             SaveFile();
         }

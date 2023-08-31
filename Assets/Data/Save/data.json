@@ -1,8 +1,12 @@
 {
     "Players": [
         {
-            "Name": "nameMy",
-            "Score": 5
+            "Name": "rfgd",
+            "Score": 4
+        },
+        {
+            "Name": "dsa",
+            "Score": 8
         }
     ]
 }
