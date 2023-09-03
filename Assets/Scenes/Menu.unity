@@ -1724,7 +1724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 1080585147}
   _volume: 1
-  _clickButtonSpound: {fileID: 8300000, guid: baee95322554c514c8edbd14b339df2f, type: 3}
+  _clickButtonSound: {fileID: 8300000, guid: baee95322554c514c8edbd14b339df2f, type: 3}
 --- !u!4 &1080585149
 Transform:
   m_ObjectHideFlags: 0

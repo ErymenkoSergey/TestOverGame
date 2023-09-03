@@ -36,8 +36,14 @@ namespace TestOverMobile.UI
         {
             _pauseButton.onClick.AddListener(() => SetPausePanelStatus(true));
             _continueButton.onClick.AddListener(() => SetPausePanelStatus(false));
-            _menuButton.onClick.AddListener(() => _iControllable.ToMenu());
-            _menuGameOverButton.onClick.AddListener(() => _iControllable.ToMenu());
+            _menuButton.onClick.AddListener(() => GoToMenu());
+            _menuGameOverButton.onClick.AddListener(() => GoToMenu());
+        }
+
+        private void GoToMenu()
+        {
+            _iSaveble.Save();
+            _iControllable.ToMenu();
         }
 
         private void SetDataUI()

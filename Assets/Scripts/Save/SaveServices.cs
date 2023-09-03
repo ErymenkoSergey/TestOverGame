@@ -12,7 +12,7 @@ namespace TestOverMobile.SaveSystem
 
         public static SaveServices Instance;
 
-        [Header("For Debug")]
+        [Header("Current Player")]
         public string PlayerName;
         public int Score;
 
@@ -36,6 +36,32 @@ namespace TestOverMobile.SaveSystem
 
             _savePath = Path.Combine(Application.dataPath + _localFloder, _saveFileName);
             LoadFromFile();
+        }
+
+        public void Save()
+        {
+            AddPlayer();
+        }
+
+        public void AddPlayer()
+        {
+            _players.Add(_currentPlayer);
+            SaveFile();
+        }
+
+        public List<PlayerCard> GetPlayerCards() => _players;
+
+        public void CreateNewPlayer(string name)
+        {
+            _currentPlayer = new PlayerCard();
+            PlayerName = _currentPlayer.Name = name;
+        }
+
+        public string GetPlayerName() => _currentPlayer.Name;
+
+        public void SetResultCurrentPlayer(int score)
+        {
+            Score = _currentPlayer.Score = score;
         }
 
         public void SaveFile()
@@ -76,32 +102,6 @@ namespace TestOverMobile.SaveSystem
             {
                 Debug.Log("{GameLog} - [GameCore] - (<color=red>Error</color>) - LoadFromFile -> " + e.Message);
             }
-        }
-
-        public void Save()
-        {
-            AddPlayer();
-        }
-
-        public void AddPlayer()
-        {
-            _players.Add(_currentPlayer);
-            SaveFile();
-        }
-
-        public List<PlayerCard> GetPlayerCards() => _players;
-
-        public void CreateNewPlayer(string name)
-        {
-            _currentPlayer = new PlayerCard();
-            PlayerName = _currentPlayer.Name = name;
-        }
-
-        public string GetPlayerName() => _currentPlayer.Name;
-
-        public void SetResultCurrentPlayer(int score)
-        {
-            Score = _currentPlayer.Score = score;
         }
     }
 

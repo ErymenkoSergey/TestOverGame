@@ -6,7 +6,7 @@ namespace TestOverMobile.Audio
     {
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private float _volume = 1.0f;
-        [SerializeField] private AudioClip _clickButtonSpound;
+        [SerializeField] private AudioClip _clickButtonSound;
 
         public static AudioEffects Instance;
 
@@ -23,7 +23,7 @@ namespace TestOverMobile.Audio
 
         public void ClickButton()
         {
-            _audioSource.PlayOneShot(_clickButtonSpound, _volume);
+            _audioSource.PlayOneShot(_clickButtonSound, _volume);
         }
     }
 }

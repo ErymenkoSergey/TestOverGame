@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TestOverMobile.Interface;
 using TestOverMobile.SaveSystem;
 using TMPro;
@@ -30,8 +31,6 @@ namespace TestOverMobile.UI
         [SerializeField] private GameObject _enterDataPanel;
         [SerializeField] private GameObject _prefabPlayerCard;
         [SerializeField] private RectTransform _contentBestResult;
-
-        private string _playerName;
 
         public bool SetControllable(IControllable controllable, ISaveble saveble)
         {
@@ -92,16 +91,17 @@ namespace TestOverMobile.UI
             }
             else
             {
-                _playerName = name;
+                _iSaveble.CreateNewPlayer(name);
             }
-
-            _iSaveble.CreateNewPlayer(name);
         }
 
         public void SpawnListPlayers()
         {
             List<PlayerCard> players = GetPlayerCards();
-            foreach (var player in players)
+
+            var orderedScore = players.OrderByDescending(n => n.Score);
+
+            foreach (var player in orderedScore)
                 Instantiate(_prefabPlayerCard, _contentBestResult).GetComponent<ResultCell>().SetData(player);
         }
 
@@ -112,7 +112,6 @@ namespace TestOverMobile.UI
 
         private void QuitGame()
         {
-            _iSaveble.Save();
             _iControllable.QuitGame();
         }
     }
